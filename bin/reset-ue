@@ -1,0 +1,5 @@
+#!/bin/bash
+# Envoie une commande AT au modem (par défaut AT+CFUN=0).
+# Remplace l'outil "reset-ue" introuvable dans le journal de qhat-init.
+CMD="${1:-AT+CFUN=0}"
+exec python3 "$(dirname "$(readlink -f "$0")")/../at.py" cmd "$CMD"
